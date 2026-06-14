@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogiRoute | Smart Optimizer</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h1>LogiRoute</h1>
+            </div>
+
+            <div class="search-section">
+                <label for="address-input">Nova Entrega</label>
+                <div class="input-wrapper">
+                    <input type="text" id="address-input" placeholder="Ex: Av. Paulista, 1000...">
+                    <button id="qr-btn" class="icon-btn" style="background-color: #3b82f6; color: white; border: none; padding: 0 12px; border-radius: 4px; cursor: pointer;">
+                        <i class="fa-solid fa-qrcode"></i>
+                    </button>
+                    <button id="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                
+                <div id="qr-reader-container" style="display: none; margin-top: 15px; background: #1e293b; padding: 10px; border-radius: 8px;">
+                    <div id="reader" style="width: 100%; border-radius: 4px; overflow: hidden;"></div>
+                    <button id="close-qr-btn" class="text-btn" style="width: 100%; text-align: center; margin-top: 10px; color: #ef4444;">
+                        Cancelar Leitura
+                    </button>
+                </div>
+            </div>
+
+            <div class="list-section">
+                <div class="list-header">
+                    <span>Paradas (<span id="stop-count">0</span>)</span>
+                    <button id="clear-btn" class="text-btn">Limpar tudo</button>
+                </div>
+                <ul id="address-list">
+                    </ul>
+            </div>
+
+            <div class="action-section">
+                <button id="smart-optimize-btn" class="main-btn" style="background-color: #8b5cf6; margin-bottom: 10px;">
+                    <i class="fa-solid fa-brain"></i>
+                    Ordenação Inteligente
+                </button>
+
+                <button id="optimize-btn" class="main-btn">
+                    <i class="fa-solid fa-route"></i>
+                    Traçar Rota na Ordem Atual
+                </button>
+                
+                <button id="export-btn" class="secondary-btn" style="display: none;">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    Abrir no Google Maps
+                </button>
+            </div>
+        </aside>
+
+        <main id="map"></main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="app.js"></script>
+</body>
+</html>

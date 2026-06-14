@@ -1,0 +1,159 @@
+:root {
+    --bg-dark: #0f172a;
+    --sidebar-bg: #1e293b;
+    --accent: #38bdf8;
+    --accent-hover: #0ea5e9;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --danger: #ef4444;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 400px;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.logo i { font-size: 2rem; color: var(--accent); }
+.logo h1 { font-family: 'Poppins', sans-serif; font-size: 1.5rem; }
+
+.search-section { margin-bottom: 30px; }
+.search-section label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; }
+
+.input-wrapper { display: flex; gap: 10px; }
+.input-wrapper input {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: white;
+    outline: none;
+}
+
+.input-wrapper button {
+    background: var(--accent);
+    color: var(--bg-dark);
+    border: none;
+    padding: 0 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.input-wrapper button:hover { background: var(--accent-hover); }
+
+/* List Styling */
+.list-section { flex: 1; overflow-y: auto; margin-bottom: 20px; }
+.list-header { display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: 600; font-size: 0.9rem; }
+.text-btn { background: none; border: none; color: var(--danger); cursor: pointer; font-size: 0.8rem; }
+
+#address-list { list-style: none; }
+#address-list li {
+    background: #334155;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+#address-list li .remove-stop { color: var(--text-muted); cursor: pointer; }
+#address-list li .remove-stop:hover { color: var(--danger); }
+
+/* Action Button */
+.main-btn {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background: var(--accent);
+    color: var(--bg-dark);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.main-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4); }
+
+/* Map */
+#map { flex: 1; background: #111; }
+
+/* Estilo do botão do Google Maps */
+.secondary-btn {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+    background: transparent;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.secondary-btn:hover {
+    background: #334155;
+}
+
+/* Estilo do Pino Numerado do Mapa */
+.custom-number-marker {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg); /* Cria o formato de gota */
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.custom-number-marker span {
+    transform: rotate(45deg); /* Desfaz a rotação para o número ficar reto */
+    font-size: 14px;
+}
